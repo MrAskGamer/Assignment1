@@ -1,5 +1,5 @@
 function numGetter() {
-    let wanted = Array.prototype.slice.call(document.querySelectorAll('.MuiTypography-root')).filter(e => e.innerText.includes('of ') && e.tagName == 'H4')[0];
+    let wanted = document.querySelector('.MuiTypography-h4');
     if (wanted.innerText.includes('Question')) return wanted.innerText.split('n ')[1].split(' ')[0]
     else return wanted.innerText.split(' ')[0]
 }
