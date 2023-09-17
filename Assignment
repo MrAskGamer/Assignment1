@@ -66,6 +66,7 @@ document.addEventListener('keypress', e => {
         else if (num == 10) r = `Question 10\n====\n${0.5 * Number(document.querySelectorAll('.js-variable')[16].innerText) * Math.pow(Number(document.querySelectorAll('.js-variable')[17].innerText) - Math.sqrt(Math.pow(Number(document.querySelectorAll('.js-variable')[17].innerText),2) - 100/Number(document.querySelectorAll('.js-variable')[16].innerText)),2)} m`
         else if (num == 11) r = 'Question 11\n====\n9.40 m/s downward'
         else if (num == 12) r = 'Question 12\n====\nThe speed of the particle increases by 4 m/s during each second.'
+	else if (num == 14) r = 'Question 14\n====\n10 m'
 
         console.log(r)
     }
