@@ -1,0 +1,72 @@
+//ENJOY :]
+
+function numGetter() {   
+    if (document.querySelectorAll('.MuiTypography-root')[1].innerText.includes('Question')) return document.querySelectorAll('.MuiTypography-root')[1].innerText.split('n ')[1].split(' ')[0]
+    else return document.querySelectorAll('.MuiTypography-root')[1].innerText.split(' ')[0]
+}
+document.addEventListener('keypress', e => {
+    if (e.key == '/') {
+        let num = numGetter()
+        let r = 'not available';
+        if (num == 1) r = 'Question 1\n====\n10⁻⁶'
+        else if (num == 2) r = `Question 2\n====\n${Number(document.querySelector('.js-variable').innerText) * 119.830118} ft/century`
+        else if (num == 3) r = `Question 3\n====\n${Math.pow(Number(document.querySelectorAll('.js-variable')[1].innerText),3) / (Number(document.querySelectorAll('.js-variable')[3].innerText)*Math.pow(Number(document.querySelectorAll('.js-variable')[2].innerText),2))} m^2/s`
+        else if (num == 4) r = 'Question 4\n====\n2'
+        else if (num == 5) {
+            let A = Number(document.querySelectorAll('.js-variable')[4].innerText)
+            let B = Number(document.querySelectorAll('.js-variable')[4].innerText) * Math.tan(Number(document.querySelectorAll('.js-variable')[5].innerText) * (Math.PI/180))
+            let AB = Math.sqrt(A**2 +  B**2)
+            
+            r = `Question 5\n====\n${B} units\n${AB} units`
+        } else if (num == 6) {
+            let i1 = Number(document.querySelectorAll('.js-variable')[6].innerText)
+            let i2 = Number(document.querySelectorAll('.js-variable')[7].innerText) * (Math.PI/180)
+            let i3 = Number(document.querySelectorAll('.js-variable')[8].innerText) * (Math.PI/180)
+            let i4 = Number(document.querySelectorAll('.js-variable')[9].innerText) * (Math.PI/180)
+            
+            var x_2coeff = [Math.sin(i3), Math.cos(i3)];
+            var y_2coeff = [-Math.sin(i4), -Math.cos(i4)];
+            var eq_2coeff = [i1 * Math.cos(i2), -i1 * Math.sin(i2)];
+            var eliminator = [];
+            eliminator[0] = [];
+            eliminator[1] = [];
+            var x_variable;
+            var y_variable;
+            
+            function solveSimultaneous2D() {
+                // STEP 2:
+                eliminator[0][0] = y_2coeff[1] * x_2coeff[0];
+                eliminator[0][1] = y_2coeff[1] * eq_2coeff[0];
+                // STEP 3:
+                eliminator[1][0] = y_2coeff[0] * x_2coeff[1];
+                eliminator[1][1] = y_2coeff[0] * eq_2coeff[1];
+            
+                try {
+                    // STEPS 4, 5:
+                    x_variable = (eliminator[0][1] - eliminator[1][1]) / 
+                            (eliminator[0][0] - eliminator[1][0]);
+                    // STEP 6:
+                    y_variable = (eq_2coeff[0] - x_2coeff[0]*x_variable) / y_2coeff[0];
+                } catch (ex) {
+                    throw ex;
+                }
+            }
+            
+            solveSimultaneous2D()
+            
+            r = 'Question 6\n====\n' + x_variable + ' units\n' + y_variable + ' units'
+        } else if (num == 7) {
+        let Vi = Number(document.querySelectorAll('.js-variable')[10].innerText)
+        let T = Number(document.querySelectorAll('.js-variable')[11].innerText)
+        let T2 = Number(document.querySelectorAll('.js-variable')[11].innerText) + Number(document.querySelectorAll('.js-variable')[12].innerText)
+        
+        r = `Question 7\n====\n${(Vi - 13)/T} m/s^2\n${13 + (Vi - 13)/T * T2} m/s`
+        } else if (num == 8) r = `Question 8\n====\n${(10/6) * Number(document.querySelectorAll('.js-variable')[14].innerText) / Number(document.querySelectorAll('.js-variable')[13].innerText)} min`
+        else if (num == 9) r = `Question 9\n====\n${Math.sqrt(2* Math.pow(Number(document.querySelectorAll('.js-variable')[15].innerText),2))} s`
+        else if (num == 10) r = `Question 10\n====\n${0.5 * Number(document.querySelectorAll('.js-variable')[16].innerText) * Math.pow(Number(document.querySelectorAll('.js-variable')[17].innerText) - Math.sqrt(Math.pow(Number(document.querySelectorAll('.js-variable')[17].innerText),2) - 100/Number(document.querySelectorAll('.js-variable')[16].innerText)),2)} m`
+        else if (num == 11) r = 'Question 11\n====\n9.40 m/s downward'
+        else if (num == 12) r = 'Question 12\n====\nThe speed of the particle increases by 4 m/s during each second.'
+
+        console.log(r)
+    }
+})
