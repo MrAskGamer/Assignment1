@@ -1,0 +1,43 @@
+document.addEventListener('keypress', e => {
+    if (e.key == '/' || e.key == 'ظ') {
+        let num = Number(document.URL.split('question/')[1]) + 1;
+        let r = 'not available or answered automatically';
+
+        if (num == 1) {
+            let a = Number(document.querySelectorAll('.js-variable')[0].innerText)
+            let b = Number(document.querySelectorAll('.js-variable')[1].innerText)
+            
+            r = `${Math.asin(b/Math.sqrt(16**2 - a**2)) * 180/Math.PI} degrees`
+        } else if (num == 2) document.querySelector('[value="resp_2"]').click()
+        else if (num == 3) document.querySelectorAll('[value="resp_4"]')[1].click()
+        else if (num == 4) document.querySelectorAll('[value="resp_3"]')[2].click()
+        else if (num == 5) document.querySelectorAll('[value="resp_3"]')[3].click()
+        else if (num == 6) document.querySelectorAll('[value="resp_5"]')[4].click()
+        else if (num == 7) {
+            let c = Number(document.querySelectorAll('.js-variable')[2].innerText)
+            let d = Number(document.querySelectorAll('.js-variable')[3].innerText)
+            
+            r = `${c*1000*(2*Math.PI/d)**2} m/s^2`
+        } else if (num == 8) {
+            let v1 = prompt('v1')
+            let v2 = prompt('v2')
+            let v3 = prompt('v3')
+            let v4 = prompt('v4')
+            
+            r = `${v2**2/v1} m/s^2
+            0 m/s^2
+            ${v4**2/v3} m/s^2`
+        } else if (num == 9) {
+            let e = Number(document.querySelectorAll('.js-variable')[4].innerText)
+            let f = Number(document.querySelectorAll('.js-variable')[5].innerText)
+            
+            r = `${Math.sqrt(e/f)} no units`
+        } else if (num == 10) {
+            let g = Number(document.querySelectorAll('.js-variable')[6].innerText)
+            let h = Number(document.querySelectorAll('.js-variable')[7].innerText)
+            
+            r = `${h*(Math.PI/(2*g))**2} m/s^2`
+        }
+        console.log(r)
+    }
+})
