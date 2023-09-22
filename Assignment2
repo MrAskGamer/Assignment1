@@ -24,9 +24,7 @@ document.addEventListener('keypress', e => {
             let v3 = prompt('v3')
             let v4 = prompt('v4')
             
-            r = `Question 8\n====\n${v2**2/v1} m/s^2
-            0 m/s^2
-            ${v4**2/v3} m/s^2`
+            r = `Question 8\n====\n${v2**2/v1} m/s^2\n0 m/s^2\n${v4**2/v3} m/s^2`
         } else if (num == 9) {
             let e = Number(document.querySelectorAll('.js-variable')[4].innerText)
             let f = Number(document.querySelectorAll('.js-variable')[5].innerText)
