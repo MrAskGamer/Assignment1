@@ -1,0 +1,25 @@
+/*
+©Monke, Monke and Monkeys. Enjoy Assignment 3 :3
+Remember to go back to first first question before clicking '/' on the keyboard
+*/
+
+function v(v) {return Number(document.querySelectorAll('.js-variable')[v].innerText)}
+document.addEventListener('keypress', e => {
+    if (e.key == '/' || e.key == 'ظ') {
+        let n = Number(document.URL.split('question/')[1]) + 1;
+        let r = 'not available or answered automatically';
+        
+        if (n == 1) r = `Question 1\n====\n${1025 * 9.8 * 11000 * 3.14 * v(0)**2} N\n${v(1)*9.8 * 10**5} N`
+        else if (n == 2) r = `Question 2\n====\n${v(2) * 10**5 - v(3)*9800} Pa\n${v(2) * 10 ** 5/9800} m`
+        else if (n == 3) r = `Question 3\n====\n${v(4) * 10**4 - ( 1060* 9.81 * v(5))} Pa`
+        else if (n == 4) r = `Question 4\n====\n${9800 * v(6) * v(7) * v(8)} N`
+        else if (n == 5) r = `Question 5\n====\n${0.5*1.29* v(9)**2} Pa`
+        else if (n == 6) r = `Question 6\n====\n${(v(11)-v(10))/9800} m^3`
+        else if (n == 7) r = `Question 7\n====\n${v(13)**2 * v(12)} N`
+        else if (n == 8) r = document.querySelectorAll('[value="resp_5"]')[0].click()
+        else if (n == 9) r = document.querySelectorAll('[value="resp_5"]')[1].click()
+        else if (n == 10) r = document.querySelectorAll('[value="resp_5"]')[2].click()
+        
+        console.log(r)
+    }
+})
